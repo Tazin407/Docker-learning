@@ -2,7 +2,7 @@ services:
   db-server:
     image: postgres:15
     environment: 
-      POSTGRES_PASSWORD: password123
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - my-db-data:/var/lib/postgresql/data  # Moved here! ✅
 
