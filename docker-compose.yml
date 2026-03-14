@@ -3,8 +3,15 @@ services:
     image: postgres:15
     environment: 
       POSTGRES_PASSWORD: password123
+    volumes:
+      - my-db-data:/var/lib/postgresql/data  # Moved here! ✅
 
   web-server:
     build: .
     ports:
       - "8080:80"
+    volumes:
+      - .:/usr/share/nginx/html
+
+volumes:
+  my-db-data:  # Docker creates this automatically
